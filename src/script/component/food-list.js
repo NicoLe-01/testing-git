@@ -1,10 +1,10 @@
 import "./food-item.js";
 
 class FoodList extends HTMLElement {
-  connectedCallback() {
-    this.render();
+  constructor() {
+    super();
   }
-
+  
   set foods(foods) {
     this._foods = foods;
     this.render();
@@ -12,7 +12,7 @@ class FoodList extends HTMLElement {
 
   render() {
     this.innerHTML = "";
-    this._foods.forEach((food) => {
+    this._foods.map((food) => {
       const foodItemElement = document.createElement("food-item");
       foodItemElement.food = food;
       this.appendChild(foodItemElement);
